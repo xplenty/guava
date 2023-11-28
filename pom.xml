@@ -310,24 +310,14 @@
   </dependencyManagement>
   <profiles>
     <profile>
-        <id>sonatype-oss-release</id>
-        <build>
-          <plugins>
-            <plugin>
-              <artifactId>maven-gpg-plugin</artifactId>
-              <version>3.0.1</version>
-              <executions>
-                <execution>
-                  <id>sign-artifacts</id>
-                  <phase>verify</phase>
-                  <goals>
-                    <goal>sign</goal>
-                  </goals>
-                </execution>
-              </executions>
-            </plugin>
-          </plugins>
-      </build>
+        <activation>
+            <property>
+                <name>!env.PROJECT_REPO</name>
+            </property>
+        </activation>
+        <properties>
+            <env.PROJECT_REPO>sharelib-stg</env.PROJECT_REPO>
+        </properties>
     </profile>
     <profile>
       <!--
