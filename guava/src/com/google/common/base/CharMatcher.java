@@ -147,6 +147,12 @@ public abstract class CharMatcher implements Predicate<Character> {
     return Whitespace.INSTANCE;
   }
 
+  /*
+   * The following constants were restored from Guava's previous version
+   * in order to support Xplenty's current version of Hadoop (2.8.3)
+   */
+  public static final CharMatcher WHITESPACE = whitespace();
+
   /**
    * Determines whether a character is a breaking whitespace (that is, a whitespace which can be
    * interpreted as a break between words for formatting purposes). See {@link #whitespace()} for a
